@@ -149,6 +149,14 @@ const en = {
     totalBalls: 'Balls Hit',
     duration: 'Duration',
     
+    // Factors for Radar Chart
+    performanceAnalysis: 'Performance Analysis',
+    factorForm: 'Form',
+    factorAccuracy: 'Accuracy',
+    factorSpeed: 'Speed',
+    factorTiming: 'Timing',
+    factorStance: 'Stance',
+    
     // Fallback for missing keys in drill data
     introBackhandTopspin: 'Develop a consistent topspin backhand.',
     stepsBackhandTopspin: 'Turn shoulders|Drop racket head|Brush up the ball',
@@ -402,6 +410,14 @@ export const TRANSLATIONS = {
     descNTRP3: 'NTRP 3.0 - 高级战术应用',
     duration: '时长',
     
+    // Factors for Radar Chart
+    performanceAnalysis: '表现分析',
+    factorForm: '动作完整度',
+    factorAccuracy: '准确度',
+    factorSpeed: '挥拍速度',
+    factorTiming: '击球时机',
+    factorStance: '站姿',
+    
     // Pairing
     scanning: '正在搜索设备...',
     devicesFound: '发现设备',
@@ -617,6 +633,14 @@ export const TRANSLATIONS = {
     descNTRP2: 'NTRP 2.0 - 進階技巧掌握',
     descNTRP3: 'NTRP 3.0 - 高級戰術應用',
     duration: '時長',
+
+    // Factors for Radar Chart
+    performanceAnalysis: '表現分析',
+    factorForm: '動作完整度',
+    factorAccuracy: '準確度',
+    factorSpeed: '揮拍速度',
+    factorTiming: '擊球時機',
+    factorStance: '站姿',
 
     // Pairing
     scanning: '正在搜尋設備...',

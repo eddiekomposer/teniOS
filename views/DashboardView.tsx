@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, PanInfo } from 'framer-motion';
 import { LEVEL_DRILLS, DRILLS_DATA } from '../constants';
 import { Language, TrainingHistoryItem, Drill, ConnectionStatus } from '../types';
-import { Play, Compass, Lock, Wifi, BarChart2, Camera, Edit2, Check } from 'lucide-react';
+import { Play, Compass, Lock, Wifi, BarChart2, Camera, Edit2, Check, ChevronRight } from 'lucide-react';
 import { TRANSLATIONS } from '../translations';
 
 interface DashboardViewProps {
@@ -415,6 +415,7 @@ const DashboardView: React.FC<DashboardViewProps> = ({
                                             onClick={handleLevelClick}
                                         >
                                             {profile.level}
+                                            <ChevronRight size={12} className="opacity-70 group-hover:opacity-100 transition-opacity" />
                                         </div>
                                       </div>
                                     </div>

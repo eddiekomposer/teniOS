@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Share2, RotateCcw, Video, FileBarChart, Play, ArrowLeft, MoreVertical, Sparkles, Home, Clock, Target, Trophy, ThumbsUp, ThumbsDown, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import { Language, Coach, TrainingHistoryItem } from '../types';
 import { TRANSLATIONS } from '../translations';
 
@@ -217,6 +218,15 @@ const ReportView: React.FC<ReportViewProps> = ({ onClose, onRetry, lang, fromHis
   };
   const totalSwings = swings.length;
 
+  // Radar Data
+  const radarData = [
+    { subject: t.factorForm, A: 85, fullMark: 100 },
+    { subject: t.factorAccuracy, A: reportData?.accuracy || 78, fullMark: 100 },
+    { subject: t.factorSpeed, A: 92, fullMark: 100 },
+    { subject: t.factorTiming, A: 88, fullMark: 100 },
+    { subject: t.factorStance, A: 70, fullMark: 100 },
+  ];
+
   const scrollToSwing = (id: number) => {
     const element = document.getElementById(`swing-${id}`);
     if (element) {
@@ -377,6 +387,28 @@ const ReportView: React.FC<ReportViewProps> = ({ onClose, onRetry, lang, fromHis
                          <div className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-1"><Trophy size={12}/> Rank</div>
                          <div className="text-2xl md:text-3xl font-black text-white">{rank}</div>
                     </div>
+                 </div>
+
+                 {/* New Radar Chart Section */}
+                 <div className="bg-surface-800 rounded-2xl p-6 border border-white/5 h-[320px] relative overflow-hidden">
+                     <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-2 relative z-10">{t.performanceAnalysis}</h3>
+                     <div className="absolute inset-0 top-8 flex items-center justify-center">
+                        <ResponsiveContainer width="100%" height="100%">
+                            <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
+                                <PolarGrid stroke="#333" />
+                                <PolarAngleAxis dataKey="subject" tick={{ fill: '#888', fontSize: 10 }} />
+                                <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
+                                <Radar
+                                    name="Performance"
+                                    dataKey="A"
+                                    stroke="#88d600"
+                                    strokeWidth={2}
+                                    fill="#88d600"
+                                    fillOpacity={0.3}
+                                />
+                            </RadarChart>
+                        </ResponsiveContainer>
+                     </div>
                  </div>
 
                  {/* 3. Rank Distribution */}
