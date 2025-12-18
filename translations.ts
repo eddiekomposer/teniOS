@@ -157,41 +157,6 @@ const en = {
     factorTiming: 'Timing',
     factorStance: 'Stance',
     
-    // Fallback for missing keys in drill data
-    introBackhandTopspin: 'Develop a consistent topspin backhand.',
-    stepsBackhandTopspin: 'Turn shoulders|Drop racket head|Brush up the ball',
-    aiBackhandTopspin: 'Stay balanced.',
-    introFlatServe: 'Power serve down the T.',
-    stepsFlatServe: 'Toss in front|Extend fully|Pronate wrist',
-    aiFlatServe: 'Reach up higher.',
-    introKickServe: 'High bouncing serve.',
-    stepsKickServe: 'Toss behind head|Brush up and out|Stay sideways',
-    aiKickServe: 'Use more leg drive.',
-    introForehandVolley: 'Punch the volley.',
-    stepsForehandVolley: 'Split step|Turn|Punch forward',
-    aiForehandVolley: 'Keep racket head up.',
-    introOverhead: 'Smash high balls.',
-    stepsOverhead: 'Turn sideways|Point at ball|Snap wrist',
-    aiOverhead: 'Move your feet to get under the ball.',
-    introBasicSmash: 'Finish the point.',
-    stepsBasicSmash: 'Track ball|Position feet|Strike high',
-    aiBasicSmash: 'Don\'t let the ball drop too low.',
-    introHighForehand: 'The high forehand is a challenging shot that forces you to strike the ball above shoulder level.',
-    stepsHighForehand: 'Early Recognition|Footwork|Contact Point|Follow Through',
-    aiHighForehand: 'Focus on driving your weight forward.',
-    introLowForehand: 'Mastering the low forehand is essential for handling slice shots.',
-    stepsLowForehand: 'Bend Knees|Vertical Swing|Soft Hands',
-    aiLowForehand: 'Keep your knees bent.',
-    introCrossCourt: 'The cross-court forehand is the bread and butter of baseline play.',
-    stepsCrossCourt: 'Targeting|Rotation|Clearance',
-    aiCrossCourt: 'Great consistency!',
-    introBackhandSlice: 'A defensive and offensive weapon.',
-    stepsBackhandSlice: 'High Takeback|Chop Motion|Knife the Ball',
-    aiBackhandSlice: 'Your slice is floating too high.',
-    descNTRP1: 'NTRP 1.0 - Beginner Foundation',
-    descNTRP2: 'NTRP 2.0 - Intermediate Skills',
-    descNTRP3: 'NTRP 3.0 - Advanced Techniques',
-
     // Pairing
     scanning: 'Scanning for devices...',
     devicesFound: 'Devices Found',
@@ -225,6 +190,18 @@ const en = {
     weekAgo: 'week ago',
     guest: 'Guest',
 
+    // Posture Detail Stats
+    trainingCount: 'Trainings',
+    masteryLevel: 'Mastery',
+    historyRecord: 'History',
+    
+    // Mastery Statuses
+    masteryExpert: 'Expert',
+    masteryProficient: 'Proficient',
+    masteryBeginner: 'Beginner',
+    masteryImproving: 'Improving',
+    masteryNone: 'Learning',
+
     // Mock Suggestions
     sugg1: 'Excellent follow-through. Wrist lag was perfect for generating top spin.',
     sugg2: 'Slightly late contact point. Prepare the racket earlier during the unit turn.',
@@ -237,6 +214,7 @@ const en = {
 export const TRANSLATIONS = {
   'en': en,
   'zh-CN': {
+    ...en,
     home: '首页',
     profile: '个人中心',
     device: '设备管理',
@@ -329,8 +307,6 @@ export const TRANSLATIONS = {
     Volley: '截击',
     descVolley: '网前快速反应训练。',
     Smash: '高压球',
-    
-    // Drills
     drillFlatForehand: '正手平击',
     drillOneHandedBackhand: '反手单手',
     drillTwoHandedBackhand: '反手双手',
@@ -347,7 +323,6 @@ export const TRANSLATIONS = {
     drillLowForehand: '低位正手',
     drillCrossCourt: '斜线正手',
     drillBasicSmash: '基础高压球',
-
     lastTrained: '练过: ',
     neverTrained: '从未练过',
     avgAccuracy: '平均正确率',
@@ -409,20 +384,14 @@ export const TRANSLATIONS = {
     descNTRP2: 'NTRP 2.0 - 进阶技巧掌握',
     descNTRP3: 'NTRP 3.0 - 高级战术应用',
     duration: '时长',
-    
-    // Factors for Radar Chart
     performanceAnalysis: '表现分析',
     factorForm: '动作完整度',
     factorAccuracy: '准确度',
     factorSpeed: '挥拍速度',
     factorTiming: '击球时机',
     factorStance: '站姿',
-    
-    // Pairing
     scanning: '正在搜索设备...',
     devicesFound: '发现设备',
-    
-    // Report & Analysis
     speedThunder: '雷霆万钧 ⚡️',
     speedLightning: '闪电般 🌩️',
     speedFast: '快速 💨',
@@ -444,14 +413,18 @@ export const TRANSLATIONS = {
     videoClip: '视频片段',
     keyframeContact: '关键帧：击球',
     keyframeFollow: '关键帧：随挥',
-
-    // Device
     addNewDevice: '+ 添加新设备',
     daysAgo: '天前',
     weekAgo: '周前',
     guest: '访客',
-
-    // Mock Suggestions
+    trainingCount: '训练次数',
+    masteryLevel: '掌握程度',
+    historyRecord: '历史记录',
+    masteryExpert: '精通',
+    masteryProficient: '熟练',
+    masteryBeginner: '入门',
+    masteryImproving: '进步中',
+    masteryNone: '未掌握',
     sugg1: '随挥动作很棒。手腕滞后完美产生了上旋。',
     sugg2: '击球点稍晚。转体时请更早准备球拍。',
     sugg3: '膝盖太直了。多弯曲膝盖以将球提过网。',
@@ -460,7 +433,7 @@ export const TRANSLATIONS = {
     sugg6: '加速很好。稳定性是关键，保持这个节奏。',
   },
   'zh-TW': {
-     ...en,
+    ...en,
     home: '首頁',
     profile: '個人中心',
     device: '設備管理',
@@ -553,13 +526,11 @@ export const TRANSLATIONS = {
     Volley: '截擊',
     descVolley: '網前快速反應訓練。',
     Smash: '高壓球',
-    
-    // Drills
     drillFlatForehand: '正手平擊',
     drillOneHandedBackhand: '反手單手',
     drillTwoHandedBackhand: '反手雙手',
     drillTopspinForehand: '正手上旋',
-    drillForehandSmash: '正手高壓',
+    drillForehandSmash: '正手高压',
     drillTopspinBackhand: '反手上旋',
     drillFlatServe: '平擊發球',
     drillKickServe: '上旋發球',
@@ -571,13 +542,12 @@ export const TRANSLATIONS = {
     drillLowForehand: '低位正手',
     drillCrossCourt: '斜線正手',
     drillBasicSmash: '基礎高壓球',
-    
     lastTrained: '練過: ',
     neverTrained: '從未練過',
     avgAccuracy: '平均正確率',
     styleDesc: '你積極的底線進攻和強烈的上旋球與這位傳奇人物非常相似。',
     roger: '羅杰·費德勒',
-    rafa: '拉斐爾·納達尔',
+    rafa: '拉斐爾·納达尔',
     novak: '諾瓦克·喬科維奇',
     player: '選手',
     noData: '暫無數據',
@@ -622,7 +592,7 @@ export const TRANSLATIONS = {
     connectToTrain: '連接設備',
     connectToStart: '連接設備以開始訓練',
     levelBeginner: '初級',
-    levelIntermediate: '中級',
+    levelIntermediate: '中级',
     levelPro: '高級',
     locked: '未解鎖',
     completePrevious: '請先完成上一級訓練',
@@ -633,20 +603,14 @@ export const TRANSLATIONS = {
     descNTRP2: 'NTRP 2.0 - 進階技巧掌握',
     descNTRP3: 'NTRP 3.0 - 高級戰術應用',
     duration: '時長',
-
-    // Factors for Radar Chart
     performanceAnalysis: '表現分析',
     factorForm: '動作完整度',
     factorAccuracy: '準確度',
     factorSpeed: '揮拍速度',
     factorTiming: '擊球時機',
     factorStance: '站姿',
-
-    // Pairing
     scanning: '正在搜尋設備...',
     devicesFound: '發現設備',
-    
-    // Report & Analysis
     speedThunder: '雷霆萬鈞 ⚡️',
     speedLightning: '閃電般 🌩️',
     speedFast: '快速 💨',
@@ -668,14 +632,18 @@ export const TRANSLATIONS = {
     videoClip: '視頻片段',
     keyframeContact: '關鍵幀：擊球',
     keyframeFollow: '關鍵幀：隨揮',
-
-    // Device
     addNewDevice: '+ 添加新設備',
     daysAgo: '天前',
     weekAgo: '周前',
     guest: '訪客',
-
-    // Mock Suggestions
+    trainingCount: '訓練次數',
+    masteryLevel: '掌握程度',
+    historyRecord: '歷史記錄',
+    masteryExpert: '精通',
+    masteryProficient: '熟練',
+    masteryBeginner: '入門',
+    masteryImproving: '進步中',
+    masteryNone: '未掌握',
     sugg1: '隨揮動作很棒。手腕滯後完美產生了上旋。',
     sugg2: '擊球點稍晚。轉體時請更早準備球拍。',
     sugg3: '膝蓋太直了。多彎曲膝蓋以將球提過網。',

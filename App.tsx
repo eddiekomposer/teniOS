@@ -213,10 +213,6 @@ const App: React.FC = () => {
             onRetry={retryTraining} 
             lang={lang}
             fromHistory={returnView !== 'home' || currentReport != null} // If currentReport is active from dashboard click, treat as history? Actually fromHistory prop controls back button.
-            // Simplified logic: If we are viewing a past report (currentReport set, activeTraining null), it's history.
-            // If activeTraining is set, it's a post-session report.
-            // But wait, when stopping training, activeTraining is still set until closeReport? 
-            // Better logic: if returnView is 'profile' or we came from dashboard history click.
             coach={coach}
             reportData={currentReport || undefined}
           />
@@ -241,6 +237,7 @@ const App: React.FC = () => {
                 onBack={() => navigateTo('home')}
                 onStart={startTrainingFromDetail}
                 onViewReport={viewHistoryReport}
+                onJumpToHistory={() => navigateTo('history')}
                 lang={lang}
                 coach={coach} // Passed coach to the detailed view
             />

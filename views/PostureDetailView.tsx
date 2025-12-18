@@ -12,6 +12,7 @@ interface PostureDetailViewProps {
   onBack: () => void;
   onStart: () => void;
   onViewReport: (item: TrainingHistoryItem) => void;
+  onJumpToHistory: () => void;
   lang: Language;
   coach: Coach;
 }
@@ -23,6 +24,7 @@ const PostureDetailView: React.FC<PostureDetailViewProps> = ({
     onBack, 
     onStart, 
     onViewReport,
+    onJumpToHistory,
     lang, 
     coach 
 }) => {
@@ -35,10 +37,24 @@ const PostureDetailView: React.FC<PostureDetailViewProps> = ({
 
   // Find relevant history for this drill type
   const relevantReports = drillType 
-    ? history.filter(h => h.type === drillType).sort((a, b) => new Date(b.id).getTime() - new Date(a.id).getTime())
+    ? history.filter(h => h.type === drillType)
     : [];
   
-  const lastReport = relevantReports.length > 0 ? relevantReports[0] : null;
+  const sessionCount = relevantReports.length;
+  const avgAccuracy = sessionCount > 0 
+    ? Math.round(relevantReports.reduce((acc, curr) => acc + curr.accuracy, 0) / sessionCount) 
+    : 0;
+
+  // Mastery Level Logic as requested
+  const getMasteryLabel = (accuracy: number) => {
+    if (accuracy > 95) return t.masteryExpert;
+    if (accuracy >= 70) return t.masteryProficient;
+    if (accuracy >= 50) return t.masteryBeginner;
+    if (accuracy >= 20) return t.masteryImproving;
+    return t.masteryNone;
+  };
+
+  const masteryStatus = getMasteryLabel(avgAccuracy);
 
   return (
     <div className="h-screen bg-black relative z-50 overflow-y-auto overflow-x-hidden custom-scrollbar">
@@ -119,6 +135,30 @@ const PostureDetailView: React.FC<PostureDetailViewProps> = ({
 
            <div className="px-6 md:px-8 pt-4 space-y-10 max-w-3xl mx-auto">
                   
+                  {/* Stats Bar (Requested Update) */}
+                  <section className="flex items-center justify-between py-6 border-y border-white/10">
+                    <div className="flex-1 border-r border-white/5 pr-4">
+                      <div className="text-[10px] text-white/40 uppercase font-bold tracking-widest mb-1">{t.trainingCount}</div>
+                      <div className="text-xl font-black text-white">{sessionCount} <span className="text-xs text-white/40 font-normal">{lang.startsWith('zh') ? '次' : ''}</span></div>
+                    </div>
+                    <div className="flex-1 border-r border-white/5 px-4">
+                      <div className="text-[10px] text-white/40 uppercase font-bold tracking-widest mb-1">{t.masteryLevel}</div>
+                      <div className="flex flex-col">
+                        <div className="text-xl font-black text-neon-400 leading-tight">{masteryStatus}</div>
+                        {sessionCount > 0 && <div className="text-[10px] text-white/20 font-bold">{avgAccuracy}% Accuracy</div>}
+                      </div>
+                    </div>
+                    <div className="flex-1 pl-4 flex items-center justify-end">
+                      <button 
+                        onClick={onJumpToHistory}
+                        className="flex items-center gap-1.5 text-[11px] font-bold text-white/60 hover:text-white transition-colors uppercase tracking-wider"
+                      >
+                        {t.historyRecord}
+                        <ChevronRight size={14} />
+                      </button>
+                    </div>
+                  </section>
+
                   {/* Introduction */}
                   <section>
                       <p className="text-white/80 leading-relaxed text-base md:text-lg">
